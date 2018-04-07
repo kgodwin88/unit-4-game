@@ -2,39 +2,50 @@ body{
     background-image: url(../images/starwars.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
+    background-blend-mode: darken;
     margin: 20px;
+    
+}
+#selection{
+    float: left;
 }
 h1{
     color: #ffffff;
-    font-size: 35px;
+    font-size: 40px;
+    text-shadow: 1px 1px 0px #000;
 }
 h2{
     color: #ffffff;
     font-size: 25px;
+    text-shadow: 1px 1px 0px #000;
 }
 .images{
     width: 150px;
     overflow: auto;
-    position: relative;
     float: left;
     padding: 5px;
-    border: 1px solid;
-    background-color: #ffffff;
+    background-color: #666;
     margin-right: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 10px;
 }
-.container{
-    width: 100%;
-    margin: 0 auto;
-    clear: both;
-    min-height: 100%;
-}
+
 header{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+
 }
-.light{
-    position: relative;
-    bottom: 25px;
-    left: 30px;
+
+.yourCharacter, .enimiesArea{
+    height: 180px;
+}
+.yourCharacter, .enimiesArea, .fightSection, .dark, .light{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#attack{
+    margin-top: 10px;
 }

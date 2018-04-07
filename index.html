@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel = "stylesheet" href = "./assets/css/reset.css">
     <link rel = "stylesheet" href = "./assets/css/style.css">
     <title>Star Wars RPG</title>
@@ -11,46 +14,87 @@
 <body>
 <div class = container>
     <header>
-        <h1>Choose a Character</h1>
+        <h1>Star Wars RPG</h1>
     </header>    
-<div class = "dark">
-    <h2>Dark Side</h2>
-    <div class = "images" id = "darthmaul">
-            <h3>Darth Maul</h3> 
-            <img  src = "./assets/images/darthmaul.jpeg" alt = Darth Maul style = "width: 100%; height: 150px">
-            <h3 id = "dmPower">120</h3>
+<div class = "container"></div>
+    <div class = "row">
+        <div class = "col-md-6">
+            <div class = "dark">
+                <h2>Dark Side</h2>
+                <div class = "images" id = "darthMaul">
+                        <h3>Darth Maul</h3> 
+                        <img  src = "./assets/images/darthmaul.jpeg" alt = Darth Maul style = "width: 100%; height: 120px">
+                        <h3 id = "dmHealth"></h3>
+                     
+                    </div>
+                    
+                    <div class = "images" id = "darthVader">
+                        <h3>Darth Vader</h3>
+                        <img  src = "./assets/images/darthvador.jpg" alt = Darth Vader style = "width: 100%; height: 120px">
+                        <h3 id = "dvHealth"></h3>
+                       
+                    </div>
+                
+                    <div class = "images" id = "kyloRen">
+                        <h3>Kylo Ren</h3>
+                        <img  src = "./assets/images/kyloren.jpg" alt = Kylo Ren style = "width: 100%; height: 120px">   
+                        <h3 id = "krHealth"></h3>
+                     
+                </div>
+            </div>  
+        </div>  
+            <div class = "col-md-6">
+                <div class = "light">
+                    <h2>Light Side</h2>
+                <div class = "images" id = "rey">
+                        <h3>Rey</h3>
+                        <img  src = "./assets/images/rey.jpg" alt = Rey style = "width: 100%; height: 120px">
+                        <h3 id = "reyHealth"></h3>
+                        
+                    </div>
+                    
+                    <div class = "images" id = "yoda">
+                        <h3>Yoda</h3>
+                        <img  src = "./assets/images/yoda.png" alt = Yoda style = "width: 100%; height: 120px">
+                        <h3 id = "yodaHealth"></h3>
+                    </div>
+                
+                    <div class = "images" id = "skywalker">
+                        <h3>Luke Skywalker</h3>
+                        <img  src = "./assets/images/lukeskywalker.jpg" alt = Luke Skywalker style = "width: 100%; height: 120px">
+                        <h3 id = "lsHealth"></h3>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class = "images" id = "darthvader">
-            <h3>Darth Vader</h3>
-            <img  src = "./assets/images/darthvador.jpg" alt = Darth Vader style = "width: 100%; height: 150px">
-            <h3 id = "dvPower">150</h3>
-        </div>
-    
-        <div class = "images" id = "kyloren">
-            <h3>Kylo Ren</h3>
-            <img  src = "./assets/images/kyloren.jpg" alt = Kylo Ren style = "width: 100%; height: 150px">   
-            <h3 id = "krPower">100</h3>
-        </div>
-    </div>    
-    <div class = "light">
-        <h2>Light Side</h2>
-    <div class = "images" id = "rey">
-            <h3>Rey</h3>
-            <img  src = "./assets/images/rey.jpg" alt = Rey style = "width: 100%; height: 150px">
-            <h3 id = "reyPower">100</h3>
-        </div>
-        
-        <div class = "images" id = "yoda">
-            <h3>Yoda</h3>
-            <img  src = "./assets/images/yoda.png" alt = Yoda style = "width: 100%; height: 150px">
-            <h3 id = yodaPower>150</h3>
-        </div>
-    
-        <div class = "images" id = "skywalker">
-            <h3>Luke Skywalker</h3>
-            <img  src = "./assets/images/lukeskywalker.jpg" alt = Luke Skywalker style = "width: 100%; height: 150px">
-            <h3 id = "lsPower">120</h3>
+            <div class = "row">
+                <div class = "col-md-6">
+                    <div class = "yourCharacter">
+                        <h2>Your Character</h2>
+                       
+                        
+                        
+                    </div>            
+                </div>
+                <div class = "col-md-6">
+                    <div class = "enimiesArea">
+                        <h2>Enimies Available to Attack</h2>
+                    
+                       
+                    </div>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6">
+                    <div class = "fightSection">
+                        <h2>Fight Section</h2>
+                        <button type = "button" class="btn-lg btn-danger" id = "attack">Attack</button>
+                    </div>
+                    <div class = "defender">
+                        <h2>Defender</h2>
+                        
+                        
+                    </div>
         </div>
     </div>
 </div>
