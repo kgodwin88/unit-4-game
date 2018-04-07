@@ -1,12 +1,23 @@
 $(document).ready(function() {
+     var wins = 0;
+        var losses = 0;
     function rpg(){
         setTimeout(function(){alert("Choose a Character");}, 500);
+        $("#darthVader").show();
+        $("#darthMaul").show(); 
+        $("#kyloRen").show();
+        $("#rey").show();
+        $("#yoda").show();
+        $("#skywalker").show();
+        $(".light").append($("#rey"), $("#yoda"), $("#skywalker"));
+        $(".dark").append($("#darthVader"), $("#darthMaul"), $("#kyloRen"));
         healthDM = 120;
         healthDV = 150;
         healthKR = 100;
         healthRey = 100;
         healthYoda = 150;
         healthLS = 120;
+       
         var darthMaul = {name: "darthMaul", health: healthDM, attack: 9, counter:11};
         var darthVader = {name: "darthVader", health: healthDV, attack:5, counter: 15};
         var kyloRen = {name: "kyloRen", health: healthKR, attack: 12, counter: 8};
@@ -20,6 +31,8 @@ $(document).ready(function() {
         $("#reyHealth").html(healthRey);
         $("#yodaHealth").html(healthYoda);
         $("#lsHealth").html(healthLS);
+        $("#wins").html(wins);
+        $("#losses").html(losses);
         $(".images").on("click", function(){
             if($(".yourCharacter").children(".images").length == 0){
                 for (var i = 0; i < characterArray.length; i ++){
@@ -56,6 +69,7 @@ $(document).ready(function() {
                 
                     $(this).remove();
                     $(".defender").append(this);
+                    defense = this;
                 };
                 });
             });
@@ -86,37 +100,43 @@ function health(){
     if(character.name == "kyloRen"){
         $("#krHealth").html(character.health);
         if(character.health<= 0){
-            $(".yourCharacter").children(".images").remove();
+            $(".yourCharacter").children(".images").hide();
+            $(".dark").append(("#kyloRen"));
         }
     }
     else if(character.name == "rey"){
         $("#reyHealth").html(character.health);
         if(character.health<= 0){
-            $(".yourCharacter").children(".images").remove();
+            $(".yourCharacter").children(".images").hide();
+            $(".light").append($("#rey"));
         }
     }
     else if(character.name == "yoda"){
         $("#yodaHealth").html(character.health);
         if(character.health<= 0){
-            $(".yourCharacter").children(".images").remove();
+            $(".yourCharacter").children(".images").hide();
+            $(".light").append($("#yoda"));
         }
     }
     else if(character.name == "skywalker"){
         $("lsHealth").html(character.health);
         if(character.health<= 0){
-            $(".yourCharacter").children(".images").remove();
+            $(".yourCharacter").children(".images").hide();
+            $(".light").append($("#skywalker"));
         }
     }
     else if(character.name == "darthVader"){
         $("#dvHealth").html(character.health);
         if(character.health<= 0){
-            $(".yourCharacter").children(".images").remove();
+            $(".yourCharacter").children(".images").hide();
+            $(".dark").append($("#darthVader"));
         }
     }
     else if(character.name == "darthMaul"){
         $("#dmHealth").html(character.health);
         if(character.health<= 0){
-            $(".yourCharacter").children(".images").remove();
+            $(".yourCharacter").children(".images").hide();
+            $(".dark").append($("#darthMaul"));
         }
     };
     if(defender.name == "kyloRen"){
@@ -124,7 +144,8 @@ function health(){
         healthKR = (healthKR - character.attack);
         $("#krHealth").html(healthKR);
         if(healthKR <= 0){
-            $(".defender").children(".images").remove();
+            $(defense).hide();
+            $(".dark").append(("#kyloRen"));
         };
     } 
     else if(defender.name == "rey"){
@@ -132,7 +153,8 @@ function health(){
         healthRey = (healthRey - character.attack);
         $("#reyHealth").html(healthRey);
         if(healthRey <= 0){
-            $(".defender").children(".images").remove();
+            $(defense).hide();
+            $(".light").append($("#rey"));
         };
         } 
     else if(defender.name == "skywalker"){
@@ -140,7 +162,8 @@ function health(){
         healthLS = (healthLS - character.attack);
         $("#lsHealth").html(healthLS);
         if(healthLS <= 0){
-            $(".defender").children(".images").remove();
+            $(defense).hide();
+            $(".light").append($("#skywalker"));
         };
     }
     else if(defender.name == "darthVader"){;
@@ -148,7 +171,8 @@ function health(){
         healthDV = (healthDV - character.attack);
         $("#dvHealth").html(healthDV);
         if(healthDV <= 0){
-            $(".defender").children(".images").remove();
+            $(defense).hide();
+            $(".dark").append($("#darthVader"));
         };
     }
     else if(defender.name == "yoda"){
@@ -156,7 +180,9 @@ function health(){
         healthYoda = (healthYoda - character.attack);
         $("#yodaHealth").html(healthYoda);
         if(healthYoda <= 0){
-            $(".defender").children(".images").remove();
+            
+            $(defense).hide();
+            $(".light").append($("#yoda"));
         };
     }
     else if(defender.name == "darthMaul"){
@@ -164,7 +190,8 @@ function health(){
         healthDM = (healthDM - character.attack);
         $("#dmHealth").html(healthDM);
         if(healthDM <= 0){
-            $(".defender").children(".images").remove();
+            $(defense).hide();
+            $(".dark").append($("#darthMaul"));
         };
     };
    
@@ -173,10 +200,17 @@ function health(){
 
 function win(){
     alert("You Have Defeated Your Enemies");
-    location.reload();
+    wins ++;
+    $("#wins").html(wins);
+    rpg();
 };
 function loss(){
     alert("Your Enimies Have Defeated You");
-    location.reload();
-}
+    losses ++;
+    $("#losses").html(losses);
+    rpg();
+};
+   $("#reset").on("click", function(){
+       location.reload();
+   });
 });
